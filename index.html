@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steven Universe: Geologic Eras</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fefefe;
+      scroll-behavior: smooth;
+      min-height: 100%;
+    }
+
+    body {
+      background: url('gg.png') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to bottom, #0a1e2e, #1c2d45);
+      padding: 0;
+      text-align: center;
+      backdrop-filter: blur(4px);
+      border-bottom: 2px solid #ff99cc;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header-bg {
+      background: url('play.jpg') center center / cover no-repeat;
+      width: 100%;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1rem;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+    }
+
+    .header-bg h1 {
+      color: #ff99cc;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #ff66c4;
+      margin: 0;
+    }
+
+    .header-bg p {
+      font-size: 1.2rem;
+      color: #ffd9ec;
+      margin: 0.5rem 0 0;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(20, 20, 40, 0.8);
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 999;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: #ffb3d9;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ff66c4;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .content {
+      flex: 2;
+      min-width: 280px;
+    }
+
+    .side-panel {
+      flex: 1;
+      min-width: 200px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1rem;
+      border-left: 4px solid #ff66c4;
+      border-radius: 1rem;
+    }
+
+    h2 {
+      color: #ffd1dc;
+      font-size: 2rem;
+    }
+
+    #musicToggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      background: #ff66c4;
+      border: none;
+      border-radius: 1rem;
+      color: white;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .gradient-paleozoic {
+      background: linear-gradient(135deg, rgba(79, 77, 148, 0.75) 0%, rgba(142, 68, 173, 0.75) 100%);
+    }
+    .gradient-mesozoic {
+      background: linear-gradient(135deg, rgba(44, 62, 80, 0.75) 0%, rgba(52, 152, 219, 0.75) 100%);
+    }
+    .gradient-cenozoic {
+      background: linear-gradient(135deg, rgba(39, 174, 96, 0.75) 0%, rgba(46, 204, 113, 0.75) 100%);
+    }
+
+    .left-decor, .right-decor {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(4px);
+      z-index: -1;
+    }
+    .left-decor { left: 0; }
+    .right-decor { right: 0; }
+
+    .quote {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-left: 3px solid #ffd9ec;
+      font-style: italic;
+      color: #ffe4f1;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="left-decor"></div>
+  <div class="right-decor"></div>
+
+  <button id="musicToggle">🔊</button>
+  <audio id="bgMusic" src="ste.mp3" autoplay loop></audio>
+
+  <header>
+    <div class="header-bg">
+      <h1>Geological Universe</h1>
+      <p>Explore Earth’s timeline with NSC Group 3</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#paleozoic">Paleozoic</a>
+    <a href="#mesozoic">Mesozoic</a>
+    <a href="#cenozoic">Cenozoic</a>
+  </nav>
+
+  <section id="paleozoic" class="gradient-paleozoic">
+    <div class="content">
+      <h2>Paleozoic Era</h2>
+      <p>The Paleozoic Era (541–252 million years ago) is known for the emergence of complex life, including fish, insects, and early plants. It includes periods like the Cambrian, Ordovician, Silurian, Devonian, Carboniferous, and Permian.</p>
+      <p>Marine life flourished, and the first vertebrates appeared. Later, the first forests, amphibians, and reptiles evolved.</p>
+      <div class="quote">"All life starts somewhere—like a gem from the Kindergarten." - Peridot</div>
+    </div>
+    <div class="side-panel">
+      <h3>Fun Fact</h3>
+      <p>Trilobites were among the most successful early animals, living through much of the Paleozoic!</p>
+    </div>
+  </section>
+
+  <section id="mesozoic" class="gradient-mesozoic">
+    <div class="content">
+      <h2>Mesozoic Era</h2>
+      <p>The Mesozoic Era (252–66 million years ago) is the age of dinosaurs. It’s divided into the Triassic, Jurassic, and Cretaceous periods.</p>
+      <p>It saw the evolution of birds from dinosaurs, the dominance of reptiles, and the appearance of flowering plants.</p>
+      <div class="quote">"Dinosaurs ruled Earth like Homeworld once ruled the stars." - Garnet</div>
+    </div>
+    <div class="side-panel">
+      <h3>Did You Know?</h3>
+      <p>The first true mammals evolved during the Mesozoic, alongside dinosaurs.</p>
+    </div>
+  </section>
+
+  <section id="cenozoic" class="gradient-cenozoic">
+    <div class="content">
+      <h2>Cenozoic Era</h2>
+      <p>The Cenozoic Era (66 million years ago to present) is known as the Age of Mammals. After the mass extinction that ended the Mesozoic, mammals diversified rapidly.</p>
+      <p>This era includes the Paleogene, Neogene, and Quaternary periods. It’s marked by the evolution of humans and modern ecosystems.</p>
+      <div class="quote">"It’s not about where we started, it’s about where we are now." - Steven</div>
+    </div>
+    <div class="side-panel">
+      <h3>Modern Time</h3>
+      <p>Humans evolved during the Quaternary period, changing Earth’s environment significantly.</p>
+    </div>
+  </section>
+
+  <script>
+    const music = document.getElementById('bgMusic');
+    const toggleBtn = document.getElementById('musicToggle');
+    music.volume = 0.25;
+
+    toggleBtn.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        toggleBtn.textContent = '🔊';
+      } else {
+        music.pause();
+        toggleBtn.textContent = '🔇';
+      }
+    });
+  </script>
+</body>
+</html>
