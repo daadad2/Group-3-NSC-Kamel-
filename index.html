@@ -9,15 +9,16 @@
     html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Crewniverse', Crewniverse;
       color: #fefefe;
       scroll-behavior: smooth;
       min-height: 100%;
     }
 
     body {
-      background: url('gg.png') no-repeat center center fixed;
+      background: url('gg.png') no-repeat center center;
       background-size: cover;
+      background-attachment: scroll;
       overflow-x: hidden;
     }
 
@@ -150,6 +151,24 @@
       color: #ffe4f1;
       border-radius: 0.5rem;
     }
+
+    /* ✨ Gem Image Animation */
+    .gem-image {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 1s ease;
+      max-width: 300px;
+      width: 100%;
+      display: block;
+      margin: 1rem auto;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .gem-image.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
   </style>
 </head>
 <body>
@@ -175,9 +194,10 @@
   <section id="paleozoic" class="gradient-paleozoic">
     <div class="content">
       <h2>Paleozoic Era</h2>
-      <p>The Paleozoic Era (541–252 million years ago) is known for the emergence of complex life, including fish, insects, and early plants. It includes periods like the Cambrian, Ordovician, Silurian, Devonian, Carboniferous, and Permian.</p>
-      <p>Marine life flourished, and the first vertebrates appeared. Later, the first forests, amphibians, and reptiles evolved.</p>
+      <p>The Paleozoic Era (541–252 million years ago) is known for the emergence of complex life, including fish, insects, and early plants.</p>
+      <p>It includes periods like the Cambrian, Ordovician, Silurian, Devonian, Carboniferous, and Permian.</p>
       <div class="quote">"All life starts somewhere—like a gem from the Kindergarten." - Peridot</div>
+      <img src="Garn.png" alt="Garnet" class="gem-image" />
     </div>
     <div class="side-panel">
       <h3>Fun Fact</h3>
@@ -188,9 +208,10 @@
   <section id="mesozoic" class="gradient-mesozoic">
     <div class="content">
       <h2>Mesozoic Era</h2>
-      <p>The Mesozoic Era (252–66 million years ago) is the age of dinosaurs. It’s divided into the Triassic, Jurassic, and Cretaceous periods.</p>
-      <p>It saw the evolution of birds from dinosaurs, the dominance of reptiles, and the appearance of flowering plants.</p>
+      <p>The Mesozoic Era (252–66 million years ago) is the age of dinosaurs.</p>
+      <p>It saw the evolution of birds, the dominance of reptiles, and the appearance of flowering plants.</p>
       <div class="quote">"Dinosaurs ruled Earth like Homeworld once ruled the stars." - Garnet</div>
+      <img src="Amy.png" alt="Amethyst" class="gem-image" />
     </div>
     <div class="side-panel">
       <h3>Did You Know?</h3>
@@ -201,9 +222,10 @@
   <section id="cenozoic" class="gradient-cenozoic">
     <div class="content">
       <h2>Cenozoic Era</h2>
-      <p>The Cenozoic Era (66 million years ago to present) is known as the Age of Mammals. After the mass extinction that ended the Mesozoic, mammals diversified rapidly.</p>
-      <p>This era includes the Paleogene, Neogene, and Quaternary periods. It’s marked by the evolution of humans and modern ecosystems.</p>
+      <p>The Cenozoic Era (66 million years ago to present) is known as the Age of Mammals.</p>
+      <p>This era includes the Paleogene, Neogene, and Quaternary periods and is marked by the evolution of humans.</p>
       <div class="quote">"It’s not about where we started, it’s about where we are now." - Steven</div>
+      <img src="Pol.png" alt="Steven" class="gem-image" />
     </div>
     <div class="side-panel">
       <h3>Modern Time</h3>
@@ -225,6 +247,19 @@
         toggleBtn.textContent = '🔇';
       }
     });
+
+    // Gem image scroll animation
+    const images = document.querySelectorAll('.gem-image');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    images.forEach(img => observer.observe(img));
   </script>
 </body>
 </html>
