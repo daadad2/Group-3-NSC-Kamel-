@@ -1,162 +1,66 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fefefe;
-  scroll-behavior: smooth;
-  min-height: 100%;
-}
-
+/* General Styles */
 body {
-  background: url('gg.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: scroll;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(#0a0f1d, #1e1f3a);
+  color: #fff;
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
-header {
-  background: linear-gradient(to bottom, #0a1e2e, #1c2d45);
-  padding: 0;
+/* Intro */
+.intro {
+  padding: 100px 20px;
   text-align: center;
-  backdrop-filter: blur(4px);
-  border-bottom: 2px solid #ff99cc;
+  background: #0a1e2e;
+  color: #ffccf9;
+  border-bottom: 2px solid #ff66c4;
+}
+
+/* Sections */
+.era-section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.header-bg {
-  background: url('play.jpg') center center / cover no-repeat;
-  width: 100%;
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1rem;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
-}
-
-.header-bg h1 {
-  color: #ff99cc;
-  font-size: 2.5rem;
-  text-shadow: 0 0 10px #ff66c4;
-  margin: 0;
-}
-
-.header-bg p {
-  font-size: 1.2rem;
-  color: #ffd9ec;
-  margin: 0.5rem 0 0;
-}
-
-nav {
-  position: sticky;
-  top: 0;
-  background: rgba(20, 20, 40, 0.8);
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  z-index: 999;
-}
-
-nav a {
-  margin: 0 1rem;
-  color: #ffb3d9;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: #ff66c4;
-}
-
-section {
-  padding: 3rem 2rem;
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  background: rgba(0, 0, 0, 0.3);
+  border-top: 2px dashed rgba(255, 255, 255, 0.2);
 }
 
 .content {
-  flex: 2;
-  min-width: 280px;
+  max-width: 700px;
+  text-align: center;
 }
 
-.side-panel {
-  flex: 1;
-  min-width: 200px;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 1rem;
-  border-left: 4px solid #ff66c4;
-  border-radius: 1rem;
-}
-
-h2 {
-  color: #ffd1dc;
-  font-size: 2rem;
-}
-
-#musicToggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.5rem 1rem;
-  background: #ff66c4;
-  border: none;
-  border-radius: 1rem;
-  color: white;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.gradient-paleozoic {
-  background: linear-gradient(135deg, rgba(79, 77, 148, 0.75) 0%, rgba(142, 68, 173, 0.75) 100%);
-}
-.gradient-mesozoic {
-  background: linear-gradient(135deg, rgba(44, 62, 80, 0.75) 0%, rgba(52, 152, 219, 0.75) 100%);
-}
-.gradient-cenozoic {
-  background: linear-gradient(135deg, rgba(39, 174, 96, 0.75) 0%, rgba(46, 204, 113, 0.75) 100%);
-}
-
-.left-decor, .right-decor {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 40px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(4px);
-  z-index: -1;
-}
-.left-decor { left: 0; }
-.right-decor { right: 0; }
-
-.quote {
-  margin-top: 1rem;
-  padding: 0.8rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-left: 3px solid #ffd9ec;
-  font-style: italic;
-  color: #ffe4f1;
-  border-radius: 0.5rem;
-}
-
+/* Gem Images */
 .gem-image {
+  width: 200px;
+  height: 200px;
+  margin: 30px auto 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   opacity: 0;
-  transform: scale(0.8);
-  transition: all 1s ease;
-  max-width: 300px;
-  width: 100%;
-  display: block;
-  margin: 1rem auto;
-  border-radius: 1rem;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
-.gem-image.visible {
+.gem-image.show {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0);
 }
+
+/* Gem Backgrounds */
+[data-gem="peridot"] {
+  background-image: url('peridot.png');
+}
+
+[data-gem="garnet"] {
+  background-image: url('garnet.png');
+}
+
+[data-gem="steven"] {
+  background-image: url('steven.png');
+}
+
