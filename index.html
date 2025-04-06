@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Steven Universe: Geologic Eras</title>
-  <link rel="stylesheet" href="styles.css" />
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Crewniverse', Crewniverse;
+      font-family: 'Crewniverse', 'Segoe UI', sans-serif;
       color: #fefefe;
       scroll-behavior: smooth;
       min-height: 100%;
@@ -121,13 +120,15 @@
     }
 
     .gradient-paleozoic {
-      background: linear-gradient(135deg, rgba(79, 77, 148, 0.75) 0%, rgba(142, 68, 173, 0.75) 100%);
+      background: linear-gradient(135deg, rgba(79, 77, 148, 0.75), rgba(142, 68, 173, 0.75));
     }
+
     .gradient-mesozoic {
-      background: linear-gradient(135deg, rgba(44, 62, 80, 0.75) 0%, rgba(52, 152, 219, 0.75) 100%);
+      background: linear-gradient(135deg, rgba(44, 62, 80, 0.75), rgba(52, 152, 219, 0.75));
     }
+
     .gradient-cenozoic {
-      background: linear-gradient(135deg, rgba(39, 174, 96, 0.75) 0%, rgba(46, 204, 113, 0.75) 100%);
+      background: linear-gradient(135deg, rgba(39, 174, 96, 0.75), rgba(46, 204, 113, 0.75));
     }
 
     .left-decor, .right-decor {
@@ -139,6 +140,7 @@
       backdrop-filter: blur(4px);
       z-index: -1;
     }
+
     .left-decor { left: 0; }
     .right-decor { right: 0; }
 
@@ -152,7 +154,6 @@
       border-radius: 0.5rem;
     }
 
-    /* ✨ Gem Image Animation */
     .gem-image {
       opacity: 0;
       transform: scale(0.8);
@@ -168,6 +169,39 @@
     .gem-image.visible {
       opacity: 1;
       transform: scale(1);
+    }
+
+    /* Homepage */
+    #home {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 5rem 2rem;
+    }
+
+    #home h2 {
+      font-size: 2.5rem;
+      color: #ffb3d9;
+    }
+
+    #home p {
+      font-size: 1.2rem;
+      color: #fff0f5;
+      max-width: 600px;
+      margin: 1rem auto 2rem;
+    }
+
+    #home a {
+      padding: 0.8rem 1.5rem;
+      background: #ff66c4;
+      color: white;
+      border: none;
+      border-radius: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #home a:hover {
+      background: #ff3399;
     }
   </style>
 </head>
@@ -186,17 +220,24 @@
   </header>
 
   <nav>
+    <a href="#home">Home</a>
     <a href="#paleozoic">Paleozoic</a>
     <a href="#mesozoic">Mesozoic</a>
     <a href="#cenozoic">Cenozoic</a>
   </nav>
+
+  <section id="home">
+    <h2>Welcome to the Steven Universe of Geology!</h2>
+    <p>Travel through time across Earth's major eras, from ancient sea creatures to the rise of humanity. Dive in and discover the magic of our planet's history!</p>
+    <a href="#paleozoic">Start Exploring ⛏️</a>
+  </section>
 
   <section id="paleozoic" class="gradient-paleozoic">
     <div class="content">
       <h2>Paleozoic Era</h2>
       <p>The Paleozoic Era (541–252 million years ago) is known for the emergence of complex life, including fish, insects, and early plants.</p>
       <p>It includes periods like the Cambrian, Ordovician, Silurian, Devonian, Carboniferous, and Permian.</p>
-      <div class="quote">"All life starts somewhere—like a gem from the Kindergarten." - Peridot</div>
+      <div class="quote">"Hawk tuah"</div>
       <img src="Garn.png" alt="Garnet" class="gem-image" />
     </div>
     <div class="side-panel">
@@ -210,7 +251,7 @@
       <h2>Mesozoic Era</h2>
       <p>The Mesozoic Era (252–66 million years ago) is the age of dinosaurs.</p>
       <p>It saw the evolution of birds, the dominance of reptiles, and the appearance of flowering plants.</p>
-      <div class="quote">"Dinosaurs ruled Earth like Homeworld once ruled the stars." - Garnet</div>
+      <div class="quote">"Skibi tolit"</div>
       <img src="Amy.png" alt="Amethyst" class="gem-image" />
     </div>
     <div class="side-panel">
@@ -224,7 +265,7 @@
       <h2>Cenozoic Era</h2>
       <p>The Cenozoic Era (66 million years ago to present) is known as the Age of Mammals.</p>
       <p>This era includes the Paleogene, Neogene, and Quaternary periods and is marked by the evolution of humans.</p>
-      <div class="quote">"It’s not about where we started, it’s about where we are now." - Steven</div>
+      <div class="quote">"Shi my life be lit"</div>
       <img src="Pol.png" alt="Steven" class="gem-image" />
     </div>
     <div class="side-panel">
@@ -234,22 +275,21 @@
   </section>
 
   <script>
-    const music = document.getElementById('bgMusic');
-    const toggleBtn = document.getElementById('musicToggle');
-    music.volume = 0.25;
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    const images = document.querySelectorAll('.gem-image');
 
-    toggleBtn.addEventListener('click', () => {
-      if (music.paused) {
-        music.play();
-        toggleBtn.textContent = '🔊';
+    musicToggle.addEventListener('click', () => {
+      if (bgMusic.paused) {
+        bgMusic.play();
+        musicToggle.textContent = '🔊';
       } else {
-        music.pause();
-        toggleBtn.textContent = '🔇';
+        bgMusic.pause();
+        musicToggle.textContent = '🔇';
       }
     });
 
-    // Gem image scroll animation
-    const images = document.querySelectorAll('.gem-image');
+    bgMusic.volume = 0.25;
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
