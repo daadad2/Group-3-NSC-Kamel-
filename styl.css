@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Creditverse', sans-serif;
+    color: #fefefe;
+    scroll-behavior: smooth;
+    height: 100vh;
+    min-height: 100%;
+    width: 100%;
+    background: url('gg.png') no-repeat center center;
+    background-size: cover; /* Ensures the image scales with the width */
+    overflow-x: hidden;
+  }
+  
+  .header-bg h1 {
+    color: #ff99cc;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px #ff66c4;
+    margin: 0;
+  }
+  
+  .header-bg p {
+    font-size: 1.2rem;
+    color: #ffd9ec;
+    margin: 0.5rem 0 0;
+  }
