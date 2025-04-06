@@ -1,26 +1,11 @@
-const music = document.getElementById('bgMusic');
-const toggleBtn = document.getElementById('musicToggle');
-music.volume = 0.25;
+// Scroll Animation for Gem Images
+window.addEventListener('scroll', () => {
+  const gems = document.querySelectorAll('.gem-image');
 
-toggleBtn.addEventListener('click', () => {
-  if (music.paused) {
-    music.play();
-    toggleBtn.textContent = '🔊';
-  } else {
-    music.pause();
-    toggleBtn.textContent = '🔇';
-  }
-});
-
-// Scroll animation for gem images
-const images = document.querySelectorAll('.gem-image');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+  gems.forEach(gem => {
+    const rect = gem.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      gem.classList.add('show');
     }
   });
-}, { threshold: 0.5 });
-
-images.forEach(img => observer.observe(img));
+});
